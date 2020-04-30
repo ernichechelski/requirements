@@ -1,12 +1,14 @@
 #  Requirements 🧐 [WIP]
 
-> Stuff done:
-    - parsing swift source code
-    - parsing `reqfile`
-    - requiments fullfillment raport printed into standard output
-> Stuff to do:
-- distribute this tool by homebrew
-- generate nicely formatted raport file (HTML, Markdown)
+1️⃣✅parsing swift source code
+
+2️⃣✅parsing `reqfile`
+
+3️⃣✅requiments fullfillment raport printed into standard output
+
+4️⃣🔴distribute this tool by homebrew
+
+5️⃣🔴generate nicely formatted raport file (HTML, Markdown)
 
 I cannot find anywhere simple requirements management tool for my project, so I decided to write one.
 How it works?
