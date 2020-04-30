@@ -1,4 +1,15 @@
+
+
+
+
 #  Requirements 🧐 [WIP]
+
+<img src="rqms.png" alt="rqms" style="zoom:25%;" />
+
+
+I cannot find anywhere simple requirements management tool for my project, so I decided to write one.
+
+Current status 💡
 
 1️⃣✅parsing swift source code
 
@@ -10,7 +21,7 @@
 
 5️⃣🔴generate nicely formatted raport file (HTML, Markdown)
 
-I cannot find anywhere simple requirements management tool for my project, so I decided to write one.
+
 How it works?
 
 You need
