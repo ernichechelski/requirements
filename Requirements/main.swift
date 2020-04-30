@@ -38,22 +38,32 @@ func start() {
 
     print("Fullfilled requirements")
     let fullfilledRequirements = projectRequirementsSet.intersection(templateRequirementsSet)
+    if fullfilledRequirements.isEmpty {
+        print("Empty")
+    }
     fullfilledRequirements.forEach {
         print($0)
     }
     print("Not fullfilled requirements")
     let notFullfilledRequirements = templateRequirementsSet.subtracting(fullfilledRequirements)
+    if notFullfilledRequirements.isEmpty {
+        print("Empty")
+    }
+
     notFullfilledRequirements.forEach {
         print($0)
     }
 
     print("Unknown requirements")
     let unknownRequirements = projectRequirementsSet.subtracting(templateRequirementsSet)
+    if unknownRequirements.isEmpty {
+        print("Empty")
+    }
     unknownRequirements.forEach {
         print($0)
     }
 
-    print("Percentage \(Float(fullfilledRequirements.count) / Float(templateRequirementsSet.count) * 100)%")
+    print("Fullfillment percentage \(Float(fullfilledRequirements.count) / Float(templateRequirementsSet.count) * 100)%")
 }
 
 // MARK: - Classes and Structs
