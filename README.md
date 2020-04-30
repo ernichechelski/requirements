@@ -62,3 +62,15 @@ Empty
 Fullfillment percentage 100.0%
 Program ended with exit code: 0
 ```
+
+# Requirements! 🧐
+
+| ID             | State | Description             |
+| -------------- | ----- | ----------------------- |
+| app_force_logout    | ✅     | The app must force logout user after 5 minutes |
+
+Fullfillment percentage 100.0%
+
+Generated at 2020-04-30 11:24:47 +0000
+
+
