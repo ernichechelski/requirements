@@ -8,6 +8,7 @@
 
 import Foundation
 import Files
+import MarkdownGenerator
 
 start()
 
@@ -17,18 +18,21 @@ start()
 ///   - CommandLine.arguments[0]: this app path
 ///   - CommandLine.arguments[1]: path to the project with source code to parse
 ///   - CommandLine.arguments[2]: path to the template file with requirements
+///   - CommandLine.arguments[3]: path to the report file
 func start() {
     print("Requirements! started")
     let arguments = CommandLine.arguments
 
-    guard arguments.count == 3 else { return }
+    guard arguments.count == 4 else { return }
 
     let projectURL = URL(fileURLWithPath: arguments[1])
     let templateURL = URL(fileURLWithPath: arguments[2])
+    let reportFolderURL = URL(fileURLWithPath: arguments[3])
 
     guard
         let projectFolder = try? Folder(path: projectURL.path),
-        let templateFile =  try? File(path: templateURL.path)
+        let templateFile =  try? File(path: templateURL.path),
+        let reportFolder =  try? Folder(path: reportFolderURL.path)
     else {
         return
     }
@@ -63,7 +67,16 @@ func start() {
         print($0)
     }
 
-    print("Fullfillment percentage \(Float(fullfilledRequirements.count) / Float(templateRequirementsSet.count) * 100)%")
+    print("Generating raport...")
+    let details: [MarkdownConvertible] = [
+        MarkdownHeader(title: "Requirements! 🧐"),
+        MarkdownTable(headers: ["ID", "State", "Description"],
+                      data: fullfilledRequirements.map { ["\($0.id)","✅","\($0.description)"] } +
+                            notFullfilledRequirements.map { ["\($0.id)","🔴","\($0.description)"] }),
+        "Fullfillment percentage \(Float(fullfilledRequirements.count) / Float(templateRequirementsSet.count) * 100)%",
+        "Generated at \(Date())"
+    ]
+    try? reportFolder.createFile(at: "report.md").write(details.markdown)
 }
 
 // MARK: - Classes and Structs
