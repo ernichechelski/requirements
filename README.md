@@ -1,12 +1,9 @@
-
-
-
-
 #  Requirements 🧐 [WIP]
 
 <img src="./rqms.png" height="100">
 
 I cannot find anywhere simple requirements management tool for my project, so I decided to write one.
+This project currently is used for research how `homebrew` distribution works, but maybe this tool will be usable in production some day 😄
 
 Current status 💡
 
@@ -30,6 +27,7 @@ You need
 [RQ:requirement_id2:requirement_short_description2]
 ```
 - `.swift` files with source code.
+- `Requirements` built version
 
 Let's assume that your app has a lot of requirements (for example. when the user don't interact with app for 3 minutes, app must force log-out).
 How to not forget about them? 🧐
@@ -60,19 +58,25 @@ class LoginSessionManager {
 }
 ```
 
-Will example following output:
+Command:
 ```
-Requirements
+./Requirements path-to-the-directory-with-swift-files path-to-the-reqfile path-to-the-directory-for-report-file
+
+```
+
+Will produce the following output:
+```
 Fullfilled requirements
 Requirement(id: "app_force_logout", description: "The app must force logout user after 5 minutes")
 Not fullfilled requirements
 Empty
 Unknown requirements
 Empty
-Fullfillment percentage 100.0%
 Program ended with exit code: 0
 ```
 
+And generate following markdown file: 
+```
 # Requirements! 🧐
 
 | ID             | State | Description             |
@@ -82,5 +86,5 @@ Program ended with exit code: 0
 Fullfillment percentage 100.0%
 
 Generated at 2020-04-30 11:24:47 +0000
-
+```
 
