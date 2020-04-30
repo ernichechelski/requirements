@@ -4,8 +4,7 @@
 
 #  Requirements 🧐 [WIP]
 
-<img src="rqms.png" alt="rqms" style="height:200px" />
-
+<img src="./rqms.png" height="100">
 
 I cannot find anywhere simple requirements management tool for my project, so I decided to write one.
 
