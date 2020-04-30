@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A3615108245AAD9F00B4570C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3615107245AAD9F00B4570C /* main.swift */; };
+		A3615110245AAF6200B4570C /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = A361510F245AAF6200B4570C /* Files */; };
+		A3615113245AE0C700B4570C /* MarkdownGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = A3615112245AE0C700B4570C /* MarkdownGenerator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,7 @@
 /* Begin PBXFileReference section */
 		A3615104245AAD9F00B4570C /* Requirements */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Requirements; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3615107245AAD9F00B4570C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A3615114245AE0DF00B4570C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3615110245AAF6200B4570C /* Files in Frameworks */,
+				A3615113245AE0C700B4570C /* MarkdownGenerator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +46,7 @@
 		A36150FB245AAD9F00B4570C = {
 			isa = PBXGroup;
 			children = (
+				A3615114245AE0DF00B4570C /* README.md */,
 				A3615106245AAD9F00B4570C /* Requirements */,
 				A3615105245AAD9F00B4570C /* Products */,
 			);
@@ -78,6 +84,10 @@
 			dependencies = (
 			);
 			name = Requirements;
+			packageProductDependencies = (
+				A361510F245AAF6200B4570C /* Files */,
+				A3615112245AE0C700B4570C /* MarkdownGenerator */,
+			);
 			productName = Requirements;
 			productReference = A3615104245AAD9F00B4570C /* Requirements */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +116,10 @@
 				Base,
 			);
 			mainGroup = A36150FB245AAD9F00B4570C;
+			packageReferences = (
+				A361510E245AAF6200B4570C /* XCRemoteSwiftPackageReference "Files" */,
+				A3615111245AE0C700B4570C /* XCRemoteSwiftPackageReference "MarkdownGenerator" */,
+			);
 			productRefGroup = A3615105245AAD9F00B4570C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +294,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A361510E245AAF6200B4570C /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Files";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.1;
+			};
+		};
+		A3615111245AE0C700B4570C /* XCRemoteSwiftPackageReference "MarkdownGenerator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eneko/MarkdownGenerator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A361510F245AAF6200B4570C /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A361510E245AAF6200B4570C /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+		A3615112245AE0C700B4570C /* MarkdownGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3615111245AE0C700B4570C /* XCRemoteSwiftPackageReference "MarkdownGenerator" */;
+			productName = MarkdownGenerator;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A36150FC245AAD9F00B4570C /* Project object */;
 }
