@@ -88,3 +88,9 @@ Fullfillment percentage 100.0%
 Generated at 2020-04-30 11:24:47 +0000
 ```
 
+## Installing
+
+Tool is ready to distrubute by Homebrew.
+
+`brew tap ernichechelski/formulae`
+`brew install requirements`

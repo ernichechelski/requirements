@@ -20,10 +20,14 @@ start()
 ///   - CommandLine.arguments[2]: path to the template file with requirements
 ///   - CommandLine.arguments[3]: path to the report file
 func start() {
+
     print("Requirements! started")
     let arguments = CommandLine.arguments
 
-    guard arguments.count == 4 else { return }
+    guard arguments.count == 4 else {
+        print("Not all required parameters provided!")
+        return
+    }
 
     let projectURL = URL(fileURLWithPath: arguments[1])
     let templateURL = URL(fileURLWithPath: arguments[2])
@@ -122,10 +126,10 @@ extension Folder {
 
     var requirements: [Requirement] {
         let folder = try? Folder(path: self.path)
-        return folder?.subfolders
+        return folder?
+            .subfolders
             .recursive
-            .map { $0.files }
-            .flatMap { $0 }
+            .flatMap { $0.files }
             .filter { $0.extension == "swift" }
             .flatMap { $0.requirements } ?? []
     }

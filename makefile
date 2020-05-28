@@ -14,7 +14,7 @@ SOURCES = $(wildcard $(srcdir)/**/*.swift)
 .PHONY: all
 all: requirements
 
-swift-highlight: $(SOURCES)
+requirements: $(SOURCES)
 	@swift build \
 		-c release \
 		--disable-sandbox \
