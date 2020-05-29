@@ -1,7 +1,7 @@
 prefix ?= /usr/local
 bindir = $(prefix)/bin
 libdir = $(prefix)/lib
-builddir = $(REPODIR)/.build
+builddir = .build
 
 build:
 	swift build --disable-sandbox
