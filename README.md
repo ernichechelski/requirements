@@ -1,4 +1,4 @@
-#  Requirements 🧐 [WIP]
+#  Requirements 🧐
 
 <img src="./rqms.png" height="100">
 
@@ -7,18 +7,18 @@ This project currently is used for research how `homebrew` distribution works, b
 
 Current status 💡
 
-1️⃣✅parsing swift source code
+1️⃣ ✅ parsing swift source code
 
-2️⃣✅parsing `reqfile`
+2️⃣ ✅ parsing `reqfile`
 
-3️⃣✅requiments fullfillment raport printed into standard output
+3️⃣ ✅ requiments fullfillment raport printed into standard output
 
-4️⃣🔴distribute this tool by homebrew
+4️⃣ ✅  distribute this tool by homebrew
 
-5️⃣🔴generate nicely formatted raport file (HTML, Markdown)
+5️⃣ ✅  generate nicely formatted raport file (HTML, Markdown)
 
 
-How it works?
+## How it works?
 
 You need
 - file named `reqfile` with listed all requirements with following format
@@ -34,14 +34,13 @@ How to not forget about them? 🧐
 List them into one place, assign some id, and when you fullfill some requirement  in your app implementation, just place comment with this requirement 😄
 This tool is created for automated process of checking, which requirements are fullfilled, and which aren't.
 
-For example:
+## Example:
 
 `reqfile`
 ```
 [RQ:app_force_logout:The app must force logout user after 5 minutes]
 ```
 
-And example file 
 `LoginSessionManager.swift`
 ```swift
 
@@ -58,13 +57,12 @@ class LoginSessionManager {
 }
 ```
 
-Command:
+Following command
 ```
 ./Requirements path-to-the-directory-with-swift-files path-to-the-reqfile path-to-the-directory-for-report-file
-
 ```
 
-Will produce the following output:
+will produce the following output in the terminal
 ```
 Fullfilled requirements
 Requirement(id: "app_force_logout", description: "The app must force logout user after 5 minutes")
@@ -75,7 +73,7 @@ Empty
 Program ended with exit code: 0
 ```
 
-And generate following markdown file: 
+and generate following markdown file
 ```
 # Requirements! 🧐
 
@@ -90,7 +88,7 @@ Generated at 2020-04-30 11:24:47 +0000
 
 ## Installing
 
-Tool is ready to distrubute by Homebrew.
+Tool is ready to install via Homebrew. Just type commands below:
 
 `brew tap ernichechelski/formulae`
 `brew install requirements`
