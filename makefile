@@ -1,38 +1,17 @@
-SHELL = /bin/bash
-
 prefix ?= /usr/local
-bindir ?= $(prefix)/bin
-libdir ?= $(prefix)/lib
-srcdir = Sources
+bindir = $(prefix)/bin
+libdir = $(prefix)/lib
 
-REPODIR = $(shell pwd)
-BUILDDIR = $(REPODIR)/.build
-SOURCES = $(wildcard $(srcdir)/**/*.swift)
+build:
+	swift build --disable-sandbox
 
-.DEFAULT_GOAL = all
+install: build
+	install ".build/x86_64-apple-macosx/debug/requirements" "$(bindir)"
 
-.PHONY: all
-all: requirements
-
-requirements: $(SOURCES)
-	@swift build \
-		-c release \
-		--disable-sandbox \
-		--build-path "$(BUILDDIR)"
-
-.PHONY: install
-install: requirements
-	@install -d "$(bindir)"
-	@install "$(BUILDDIR)/release/requirements" "$(bindir)"
-
-.PHONY: uninstall
 uninstall:
-	@rm -rf "$(bindir)/requirements"
+	rm -rf "$(bindir)/requirements"
 
-.PHONY: clean
-distclean:
-	@rm -f $(BUILDDIR)/release
+clean:
+	rm -rf .build
 
-.PHONY: clean
-clean: distclean
-	@rm -rf $(BUILDDIR)
+.PHONY: build install uninstall clean
