@@ -6,7 +6,7 @@ class Requirements < Formula
   depends_on :xcode => ["11.0", :build]
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
