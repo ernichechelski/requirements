@@ -4,10 +4,9 @@ libdir = $(prefix)/lib
 builddir = $(REPODIR)/.build
 
 build:
-	swift build --disable-sandbox --build-path "$(builddir)"
+	swift build --disable-sandbox
 
 install: build
-	install -d "$(bindir)"
 	install "$(builddir)/x86_64-apple-macosx/debug/requirements" "$(bindir)"
 
 uninstall:
